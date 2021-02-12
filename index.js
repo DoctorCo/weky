@@ -44,4 +44,4 @@ bot.on("message", async message => {
 
 })
 console.log(`All commands has been loaded!`)
-bot.login(botsettings.token);
+bot.login(process.env.token);
