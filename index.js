@@ -1,8 +1,10 @@
 const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
+const mongoose = require('mongoose')
 
 const bot = new Discord.Client({disableEveryone: true});
 
+mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {userNewUrlParser: true, useUnifiedTopology: true})
 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
