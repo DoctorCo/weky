@@ -1,24 +1,20 @@
-const Discord = require('discord.js')
-const got = require('got')
+
+const { MessageEmbed } = require('discord.js');
+const fetch = require('node-fetch');
 module.exports.run = async (bot, message, args) => {
-    const embed = new Discord.MessageEmbed()
-    got('https://www.reddit.com/r/cat/random/.json').then(response => {
-        let content = JSON.parse(response.body);
-        let permalink = content[0].data.children[0].data.permalink;
-        let memeUrl = `https://reddit.com${permalink}`;
-        let memeImage = content[0].data.children[0].data.url;
-        let memeTitle = content[0].data.children[0].data.title;
-        let memeUpvotes = content[0].data.children[0].data.ups;
-        let memeDownvotes = content[0].data.children[0].data.downs;
-        let memeNumComments = content[0].data.children[0].data.num_comments;
-        embed.setTitle(`${memeTitle}`)
-        embed.setURL(`${memeUrl}`)
-        embed.setImage(memeImage)
-        embed.setColor('RANDOM')
-        embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
-        message.channel.send(embed);
-    })
-}
+const subreddits = [
+	'cat',
+	'cats',
+	'catpics',
+	'kittens'
+];
+
+		const data = await fetch(`https://imgur.com/r/${subreddits[Math.floor(Math.random() * subreddits.length)]}/hot.json`)
+			.then(response => response.json())
+			.then(body => body.data);
+		const selected = data[Math.floor(Math.random() * data.length)];
+		return message.channel.send(new MessageEmbed().setImage(`https://imgur.com/${selected.hash}${selected.ext.replace(/\?.*/, '')}`));
+	}
 
 module.exports.config = {
     name: "cat",
