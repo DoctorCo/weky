@@ -1,5 +1,6 @@
 module.exports.run = async (bot, message, args, client) => {
 let Canvacord = require('canvacord')
+const Canvas = require('canvas')
 let layer = await Canvas.loadImage(Canvacord.assets("IMAGE").FACEPALM);
 let canvas = Canvas.createCanvas(632, 357);
 let ctx = canvas.getContext("2d");
