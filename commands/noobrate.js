@@ -9,17 +9,17 @@ module.exports.run = async (bot, message, args) =>{
 
         const embed = new MessageEmbed()
         .setColor("RANDOM")
-        .setTitle("SIMP MACHINE")
-        .setDescription(`You are ${rate}% simp 😳`)
+        .setTitle("NOOB MACHINE")
+        .setDescription(`You are ${rate}% noob 🇳 🇴 🇴 🇧`)
         .setTimestamp()
 
         message.channel.send(embed)
       }
 
       module.exports.config = {
-        name: "simprate",
-        description: "a simprate lol",
-        usage: "/simprate",
+        name: "noobrate",
+        description: "a noobrate lol",
+        usage: "/noobrate",
         accessableby: "Members",
-        aliases: ["srate","simpr"]
+        aliases: ["nrate","noobr"]
     }
