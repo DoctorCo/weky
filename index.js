@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 
-const {client, bot} = new Discord.Client({disableEveryone: true});
+const bot = new Discord.Client({disableEveryone: true});
+
+require("./util/eventHandler")(bot)
 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
@@ -24,17 +26,14 @@ fs.readdir("./commands/", (err, files) => {
         });
     });
 });
-bot.on("ready", async () => {
-    console.log(`${bot.user.username} is online`)
-    bot.user.setActivity(`Type /help for help! Playing in ${client.guilds.cache.size} servers`, {type: "PLAYING"});
-})
+
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
 
     let prefix = botsettings.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
-    let args = messageArray.slice(1);
+    let args = message.content.substring(message.content.indexOf(' ')+1);
 
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
