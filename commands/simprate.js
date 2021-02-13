@@ -9,8 +9,8 @@ module.exports.run = async (bot, message, args) =>{
 
         const embed = new MessageEmbed()
         .setColor("RANDOM")
-        .setTitle("SIMP R4TE")
-        .setDescription(`${user}'s simprate is ${rate}% 😳`)
+        .setTitle("SIMP MACHINE")
+        .setDescription(`You are ${rate}% simp 😳`)
         .setTimestamp()
         .setFooter()
 
