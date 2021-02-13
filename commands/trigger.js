@@ -4,14 +4,14 @@ module.exports.run = async (bot, message, args, client) => {
     const canvacord = require('canvacord')
     const member = message.mentions.members.first() || message.member;
     const avatar = (member.user.displayAvatarURL({ format: 'jpg' }));
-let image = await canvacord.Canvas.invert(avatar)
-let attachment = new Discord.MessageAttachment( image, "invert.png")
+let image = await canvacord.Canvas.trigger(avatar)
+let attachment = new Discord.MessageAttachment( image, "trigger.png")
 message.channel.send(attachment)
 }
 module.exports.config = {
-    name: "invert",
-    description: "a invert image command",
-    usage: "/invert",
+    name: "trigger",
+    description: "a trigger image command",
+    usage: "/trigger",
     accessableby: "Members",
     aliases: []
 }
