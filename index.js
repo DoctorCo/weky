@@ -1,12 +1,15 @@
+const { token, prefix } = require('./botconfig.json');
 const Discord = require('discord.js');
-const botsettings = require('./botsettings.json');
-const prefix = botsettings.prefix
-const bot = new Discord.Client({disableEveryone: true});
+const { MessageEmbed, Message } = require("discord.js")
+const client = new Discord.Client();
+const fs = require("fs")
+const { config } = require('./commands/hack');
+const bot = new Discord.Client();
+const got = require('got');
 
-const fs = require("fs");
-bot.commands = new Discord.Collection();
-bot.aliases = new Discord.Collection();
-fs.readdir("./commands/", (err, files, client) => {
+client.commands = new Discord.Collection();
+
+fs.readdir("./commands/", (err, files) => {
     if(err) console.log(err)
 
     let jsfile = files.filter(f => f.split(".").pop() === "js") 
@@ -28,25 +31,22 @@ fs.readdir("./commands/", (err, files, client) => {
         }
     });
 });
-bot.on('message', message => {
-    if (!message.guild) {
-        return;
-    }
-    let msg = message.content.toLowerCase();
-    let args = message.content.substring(prefix.length).split(' ');
-})
-bot.on("message", async message => {
-    if(message.author.bot || message.channel.type === "dm") return;
 
-    let prefix = botsettings.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
+
+client.on('ready', async () => {
+    console.log(`Logged in as ${client.user.username} (ID: ${client.user.id} TAG: ${client.user.tag})`)
+    client.user.setActivity('OrmyTheBot | /help', { type: 'PLAYING'});
+})
+
+
+
+client.on('message', message => {
+    let messageArray = message.content.toLowerCase().split(" ");
+    let command = messageArray[0];
     let args = messageArray.slice(1);
-
-    if(!message.content.startsWith(prefix)) return;
-    let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
-    if(commandfile) commandfile.run(bot,message,args)
-
-})
-console.log(`All commands has been loaded!`)
+    
+    if(!command.startsWith(prefix)) return;
+    
+    let cmd = client.commands.get(command.slice(prefix.length));
+    if(cmd) cmd.run(client, message, args)});
 bot.login(process.env.token);
