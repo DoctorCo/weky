@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, client) => {
 
         // Basic embed
           var embed = new Discord.MessageEmbed()
-          .setAuthor(`My ping is 🏓 \`${ping}ms\` `)
+          .setDescription(`My ping is 🏓 \`${ping}ms\` `)
           .setColor("RED")
           
           // Then It Edits the message with the ping variable embed that you created
