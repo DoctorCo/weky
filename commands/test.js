@@ -9,9 +9,9 @@ let attachment = new Discord.MessageAttachment( image, "rainbow.png")
 message.channel.send(attachment)
 }
 module.exports.config = {
-    name: "burn",
-    description: "a burning image effect command",
-    usage: "/burn",
+    name: "gray",
+    description: "a gray image effect command",
+    usage: "/gray",
     accessableby: "Members",
-    aliases: ["fire"]
+    aliases: ["nocolor"]
 }
