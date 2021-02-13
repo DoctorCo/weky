@@ -1,8 +1,9 @@
+const prefix = require('./botsettings.json');
 const Discord = require('discord.js');
 const { MessageEmbed, Message } = require("discord.js")
-const { client, bot } = new Discord.Client();
-const prefix = require('./botsettings.json');
+const client = new Discord.Client();
 const fs = require("fs")
+const bot = new Discord.Client();
 
 client.commands = new Discord.Collection();
 
@@ -32,7 +33,7 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.username} (ID: ${client.user.id} TAG: ${client.user.tag})`)
-    client.user.setStatus('dnd')
+    client.user.setActivity('life is hard | /help', { type: 'PLAYING'});
 })
 
 
@@ -46,5 +47,4 @@ client.on('message', message => {
     
     let cmd = client.commands.get(command.slice(prefix.length));
     if(cmd) cmd.run(client, message, args)});
-
 bot.login(process.env.token);
