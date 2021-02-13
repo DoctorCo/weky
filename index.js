@@ -24,7 +24,30 @@ fs.readdir("./commands/", (err, files) => {
         });
     });
 });
+client.on("ready", () => {
+    client.user.setActivity("Serving " + client.guilds.cache.size + " servers");
+});
 
+client.on("guildCreate", () => {
+    // Fired every time the bot is added to a new server
+    client.user.setActivity("Serving "+ client.guilds.cache.size +" servers");
+});
+
+client.on("guildDelete", () => {
+    // Fired every time the bot is removed from a server
+    client.user.setActivity("Serving "+ client.guilds.cache.size +" servers");
+});
+
+function updateStatus() {
+    // Check if the displayed status contains the number of servers joined.
+    // If so, the status needs to be updated.
+    if (statusMessages[chosenMessageIndex].includes('{guildSize}')) {
+
+        let statusMessage = statusMessages[chosenMessageIndex].replaceAll('{guildSize}', client.guilds.cache.size);
+
+        client.user.setActivity(statusMessage);
+    }
+}
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
 
