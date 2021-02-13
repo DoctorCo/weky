@@ -4,8 +4,8 @@ module.exports.run = async (bot, message, args, client) => {
     const canvacord = require('canvacord')
     const member = message.mentions.members.first() || message.member;
     const avatar = (member.user.displayAvatarURL({ format: 'jpg' }));
-let image = await canvacord.gay(avatar)
-let attachment = new DiscordAPIError.MessageAttachment( imabe, "rainbow.png")
+let image = await canvacord.Canvas.greyscale(avatar)
+let attachment = new DiscordAPIError.MessageAttachment( image, "rainbow.png")
 message.channel.send(attachment)
 }
 module.exports.config = {
