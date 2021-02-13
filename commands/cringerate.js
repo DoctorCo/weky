@@ -21,5 +21,5 @@ module.exports.run = async (bot, message, args) =>{
         description: "a noobrate lol",
         usage: "/noobrate",
         accessableby: "Members",
-        aliases: ["cringer","crate"]
+        aliases: []
     }
