@@ -1,9 +1,8 @@
-const { token, prefix } = require('./botconfig.json');
+const prefix = require('./botsettings.json');
 const Discord = require('discord.js');
 const { MessageEmbed, Message } = require("discord.js")
 const client = new Discord.Client();
 const fs = require("fs")
-const { config } = require('./commands/hack');
 const bot = new Discord.Client();
 const got = require('got');
 
