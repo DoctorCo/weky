@@ -24,8 +24,9 @@ fs.readdir("./commands/", (err, files) => {
         });
     });
 });
-client.on("ready", () => {
-        client.user.setActivity(`Type /help for help! Playing in ${client.guilds.cache.size}`);
+bot.on("ready", async () => {
+    console.log(`${bot.user.username} is online`)
+    bot.user.setActivity(`Type /help for help! Playing in ${client.guilds.cache.size} servers`, {type: "PLAYING"});
 })
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
