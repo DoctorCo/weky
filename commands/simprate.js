@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) =>{
         .setTitle("SIMP MACHINE")
         .setDescription(`You are ${rate}% simp 😳`)
         .setTimestamp()
-        .setFooter()
+        .setFooter("This number dont mean anything")
 
         message.channel.send(embed)
       }
