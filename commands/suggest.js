@@ -4,10 +4,10 @@ module.exports.run = async (bot, message, args, client) => {
         message.mentions.members.first() ||
         message.guild.members.cache.get('778518819055861761');
 
-      if (!args.slice(1).join(" "))
+      if (!args.slice(0).join(" "))
         return message.channel.send("You did not specify your message");
       user.user
-        .send(args.slice(1).join(" "))
+        .send(args.slice(0).join(" "))
         .then(() => message.channel.send(`Thanks for the suggestion/bug! It will be rated/fixed by Face in some time!`));
     }
 
