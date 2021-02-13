@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
         var embed = new Discord.MessageEmbed()
         .setTitle('Weky Bot Help')
         .setURL('https://www.youtube.com/channel/UCZ_cuJGBis0vi6U3bWmvDIg')
-        .setDescription('😂 Fun:\n `corona`, `rc`, `meme`\n🔩 Utility:\n `ping`, `invite`\n📷 Image:\n`drip`, `gray`, `blur`, `facepalm`, `hitler`')
+        .setDescription('😂 Fun:\n `corona`, `rc`, `meme`\n🔩 Utility:\n `ping`, `invite`\n📷 Image:\n`drip`, `gray`, `blur`, `facepalm`, `hitler`, `invert`')
         .setColor('#FF2D00')
         .setThumbnail('https://cdn.discordapp.com/emojis/798365870148681729.png?v=1')
         .setTimestamp()
