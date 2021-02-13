@@ -19,22 +19,22 @@ module.exports.run = async (bot, message, args) => {
       }, 12000);
       setTimeout(() => {
         msg.edit({embed: {description: "🤮💨💨", color: "RANDOM", timestamp: new Date()}});
-      }, 15000);
+      }, 13000);
       setTimeout(() => {
         msg.edit({embed: {description: "🤮💨💨💨", color: "RANDOM", timestamp: new Date()}});
-      }, 18000);
+      }, 14000);
       setTimeout(() => {
         msg.edit({embed: {description: "🤮💨💨💨💨", color: "RANDOM", timestamp: new Date()}});
-      }, 21000);
+      }, 15000);
       setTimeout(() => {
         msg.edit({embed: {description: "🤮💨💨💨💨💨", color: "RANDOM", timestamp: new Date()}});
-      }, 242000);
+      }, 16000);
       setTimeout(() => {
         msg.edit({embed: {description: "🤮💨💨💨💨💨💨", color: "RANDOM", timestamp: new Date()}});
-      }, 27000);
+      }, 17000);
       setTimeout(() => {
         msg.edit({embed: {description: "the world have been expoled since " + `${message.author.username} has been farted on all. 👼👼`, color: "RANDOM", timestamp: new Date()}});
-      }, 29000);
+      }, 20000);
     });
 }
 
