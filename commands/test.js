@@ -1,4 +1,4 @@
-const { DiscordAPIError } = require("discord.js");
+const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, client) => {
     const canvacord = require('canvacord')
