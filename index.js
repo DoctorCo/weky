@@ -7,20 +7,25 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 fs.readdir("./commands/", (err, files) => {
-
     if(err) console.log(err)
 
     let jsfile = files.filter(f => f.split(".").pop() === "js") 
     if(jsfile.length <= 0) {
-         return console.log("[LOGS] Couldn't Find Commands!");
+         console.log("[LOGS] Couldn't Find Commands!");
+         return;
     }
+
+    console.log(`Loading commands!`);
 
     jsfile.forEach((f, i) => {
         let pull = require(`./commands/${f}`);
-        bot.commands.set(pull.config.name, pull);  
-        pull.config.aliases.forEach(alias => {
-            bot.aliases.set(alias, pull.config.name)
-        });
+        console.log(`${i + 1} ${f} loaded!`)
+        client.commands.set(pull.config.name, pull);
+        if(pull.config.aliases) {
+          pull.config.aliases.forEach(alias => {
+            client.commands.set(alias, pull)
+          })
+        }
     });
 });
 bot.on('message', message => {
