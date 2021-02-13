@@ -3,7 +3,6 @@ const botsettings = require('./botsettings.json');
 
 const bot = new Discord.Client({disableEveryone: true});
 
-require("./util/eventHandler")(bot)
 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
