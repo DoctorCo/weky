@@ -26,7 +26,7 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-bot.on("message", async message => {\
+bot.on("message", async message => {
     bot.user.setActivity(`Playing in ${bot.guilds.chache.size} servers | /help`,  {type: "PLAYING"})
 
     if(message.author.bot || message.channel.type === "dm") return;
