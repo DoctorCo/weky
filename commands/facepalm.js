@@ -9,9 +9,9 @@ let attachment = new Discord.MessageAttachment( image, "rainbow.png")
 message.channel.send(attachment)
 }
 module.exports.config = {
-    name: "dark",
-    description: "a darkness image effect command",
-    usage: "/dark",
+    name: "facepalm",
+    description: "a facepalm image command",
+    usage: "/facepalm",
     accessableby: "Members",
-    aliases: ["darkness"]
+    aliases: ["palm"]
 }
