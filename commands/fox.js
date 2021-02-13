@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const got = require('got')
+const fetch = require('node-fetch');
 module.exports.run = async (bot, message, args) => {
     const subreddits = [
         'fox',
