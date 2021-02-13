@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 const bot = new Discord.Client({disableEveryone: true});
 
-mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/test', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
