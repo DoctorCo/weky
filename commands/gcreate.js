@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, client) => {   
-    if (message.author.hasPermission(['MANAGE_MESSAGES', 'ADMINISTRATOR'])) {
+    if (user.hasPermission(['MANAGE_MESSAGES', 'ADMINISTRATOR'])) {
         console.log('No permissions to create any giveaway.');
     }
     const channel = message.mentions.channels.first();
