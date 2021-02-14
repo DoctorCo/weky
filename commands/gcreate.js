@@ -1,35 +1,33 @@
+const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
-    const Discord = require('discord.js');
-const { GiveawayManager } = require('discord-giveaway');
-const manager = new GiveawayManager(bot, {
-    default: {
-        botsCanWin: false,
-        exemptPermissions: ['MANAGE_MESSAGES', 'ADMINISTRATOR'],
-        embedColor: '#6a0dad',
-        reaction: '🎉'
+module.exports.run = async (bot, message, args, client) => {   
+    if (!member.hasPermission(['MANAGE_MESSAGES', 'MANAGE_SERVER'])) {
+        console.log('You dont have any permissions to use this command.');
     }
-});
-
-bot.giveawaysManager = manager;
-
+    const channel = message.mentions.channels.first();
+    if(!channel){
+        return message.channel.send(`Please specify in what channel you want the giveaway in!`)
+    }
+    if(!args.slice(2).join(' ')){
+        return message.channel.send(`Please specify a prize!`)
+    }
+    if(!ms(args[0])){
+        return message.channel.send(`Please specify a time in ms (30000 = 30 Seconds)`)
+    }
+    if(!parseInt(args[1])){
+        return message.channel.send(`Please specify the amount of winners for this giveaway`)
+    }
+    if(isNaN(parseInt(args[1]))) return message.channel.send(`No winners amount specified`)
     const ms = require('ms');
-    const command = args.shift().toLowerCase();
-    if(message.author.id !== '594371388228239370') return;
-    if(message.channel.type !== 'text') return;
-
-    if (command === 'gcreate') {
         // >gcreate 2d 1 Awesome prize!
         // will create a giveaway with a duration of two days, with one winner and the prize will be "Awesome prize!"
         bot.giveawaysManager.start(message.channel, {
             time: ms(args[0]),
+            channel: channel,
             prize: args.slice(2).join(' '),
             winnerCount: parseInt(args[1])
-        }).then((gData) => {
-            console.log(gData); 
-        });
+        })
     }
-}
 module.exports.config = {
     name: "gcreate",
     description: "create a giveaway in ur channel",
