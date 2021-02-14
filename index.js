@@ -51,9 +51,11 @@ bot.on("message", async message => {
         const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);
         if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
-        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
-
-        message.channel.send(`${lb.join("\n\n")}`)
+        const lb = leaderboard.map(e => `${e.position}. **${e.username}#${e.discriminator}**\n\`Level: ${e.level}\`\nXP: ${e.xp.toLocaleString()}`);
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(`**Global Weky's Leaderboard**`)
+        .setDescription(`${lb.join("\n\n")}`)
+        message.channel.send(embed)
     }
 })
 bot.on("message", async message => {
