@@ -7,7 +7,7 @@ const bot = new Discord.Client({disableEveryone: true});
 mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 
 const { GiveawayCreator } = require('discord-giveaway');
-const Creator = new GiveawayCreator(bot, 'mongodb://...');
+const Creator = new GiveawayCreator(bot, 'mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data');
 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
