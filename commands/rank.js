@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const Levels = require('discord-xp')
 const canvacord = require('canvacord')
 module.exports.run = async (bot, message, args, client) => {
-    const target = message.mentions.members.first() || message.member;
+    const target = message.mentions.members.first() || message.author;
 
     const user = await Levels.fetch(target.id, message.guild.id)
 
