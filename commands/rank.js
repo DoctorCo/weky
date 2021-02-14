@@ -8,13 +8,13 @@ module.exports.run = async (bot, message, args, client) => {
 
     if (!user) return message,reply("You dont have any xp, try to be active");
     const rank = new canvacord.Rank()
-    .setAvatar(user.displayAvatarURL({dynamic: false, format: 'png'}))
+    .setAvatar(target.displayAvatarURL({dynamic: false, format: 'png'}))
     .setCurrentXP(user.xp)
     .setRequiredXP(neededXp)
-    .setStatus(user.presense.status)
+    .setStatus(target.presense.status)
     .setProgressBar("#00FF00", "COLOR")
-    .setUsername(user.username)
-    .setDiscriminator(user.discriminator)
+    .setUsername(target.username)
+    .setDiscriminator(target.discriminator)
     rank.build()
     .then(data => {
         const attachment = new Discord.MessageAttachment(data, "rank.png")
