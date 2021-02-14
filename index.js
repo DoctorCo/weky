@@ -37,7 +37,32 @@ bot.on("message", async message => {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = message.content.substring(message.content.indexOf(' ')+1);
+    const Levels = require('discord-xp')
+    Levels.setURL("mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data")
+    const randomXp = Math.floor(math.random() * 9) + 1; //Random amont of XP until the number you want + 1
+    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
+    if (hasLeveledUp) {
+        const user = await Levels.fetch(message.author.id, message.guild.id);
+        message.channel.send(`You leveled up to ${user.level}! Keep it going!`);
+    }
+    
+    //Rank
+    if(command === "/rank") {
+        const user = await Levels.fetch(message.author.id, message.guild.id);
+        message.channel.send(`You are currently level **${user.level}**!`)
+    }
+    
+    //Leaderboard
+    if(command === "/leaderboard" || command === "/lb") {
+        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
+        if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
+        const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard); 
+
+        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
+
+        message.channel.send(`${lb.join("\n\n")}}`)
+    }
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)
