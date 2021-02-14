@@ -36,7 +36,7 @@ bot.on("message", async message => {
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
-        message.channel.send(`You leveled up to ${user.level}! Keep it going!`);
+        message.channel.send(`You leveled up to **level ${user.level}**! Keep it going!`);
     }
 })
 bot.on("message", async message => {
