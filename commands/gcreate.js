@@ -5,13 +5,13 @@ module.exports.run = async (bot, message, args, client) => {
     const prize = args[1]
     const time = args[2]
     const winners = args[3]
-    if(prize){
+    if(!prize){
         return message.channel.send(`Please specify a prize!`)
     }
-    if(time){
+    if(!time){
         return message.channel.send(`Please specify a time in ms (30000 = 30 Seconds)`)
     }
-    if(winners){
+    if(!winners){
         return message.channel.send(`Please specify the amount of winners for this giveaway`)
     }
     if(isNaN(winners)) return message.channel.send(`No winners amount specified`)
