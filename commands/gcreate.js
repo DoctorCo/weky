@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, client) => {   
-    if (message.member.hasPermission("MANAGE_MESSAGES")) return console.log("You have a permission to create giveaways.");
+
     const channel = message.mentions.channels.first();
     if(!channel){
         return message.channel.send(`Please specify in what channel you want the giveaway in!`)
