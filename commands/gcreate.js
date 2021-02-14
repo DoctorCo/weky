@@ -2,25 +2,25 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, client) => {
     const channel = message.mentions.channels.first();
-    const prize = args[1]
-    const time = args[2]
-    const winners = args[3]
-    if(!prize){
+    if(!channel){
+        return message.channel.send(`Please specify in what channel you want the giveaway in!`)
+    }
+    if(!args[2]){
         return message.channel.send(`Please specify a prize!`)
     }
-    if(!time){
+    if(!args[3]){
         return message.channel.send(`Please specify a time in ms (30000 = 30 Seconds)`)
     }
-    if(!winners){
+    if(!args[4]){
         return message.channel.send(`Please specify the amount of winners for this giveaway`)
     }
     if(isNaN(winners)) return message.channel.send(`No winners amount specified`)
     await bot.giveaways.startGiveaway({
-        prize: prize,
-        channelId: channel.id,
+        prize: args[2],
+        channelId: args[1],
         guildId: message.guild.id,
-        duration: time,
-        winners: winners,
+        duration: args[3],
+        winners: args[4],
         hostedBy: message.author.id
     });
 }
