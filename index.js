@@ -38,13 +38,13 @@ bot.on("message", async message => {
     }
     
     //Rank
-    if(command === "/rank") {
+    if(message.content === "/rank") {
         const user = await Levels.fetch(message.author.id, message.guild.id);
         message.channel.send(`You are currently level **${user.level}**!`)
     }
     
     //Leaderboard
-    if(command === "/leaderboard" || command === "/lb") {
+    if(message.content === "/leaderboard" || command === "/lb") {
         const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
         if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
