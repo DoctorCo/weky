@@ -8,7 +8,7 @@ let days = Math.floor(client.uptime / 86400000);
 message.channel.send(`__Uptime:__\n${days}d ${hours}h ${minutes}m ${seconds}s`);
 }
 module.exports.config = {
-            name: "",
+            name: "uptime",
             description: "a trigger image command",
             usage: "/uptime",
             accessableby: "Members",
