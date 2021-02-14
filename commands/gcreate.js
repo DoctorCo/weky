@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args, client) => {
     const ms = require('ms');
         // >gcreate 2d 1 Awesome prize!
         // will create a giveaway with a duration of two days, with one winner and the prize will be "Awesome prize!"
-        bot.giveawaysManager.start(message.channel, {
+        await bot.giveaways.startGiveaway({
             time: ms(args[0]),
             channelId: channel,
             hostedBy: message.author.id,
