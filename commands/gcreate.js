@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args, client) => {
     if(isNaN(winners)) return message.channel.send(`No winners amount specified`)
     await bot.giveaways.startGiveaway({
         prize: args[2],
-        channelId: args[1],
+        channelId: channel,
         guildId: message.guild.id,
         duration: args[3],
         winners: args[4],
