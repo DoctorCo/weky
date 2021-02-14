@@ -6,7 +6,8 @@ module.exports.run = async (bot, message, args, client) => {
     if(!channel){
         return message.channel.send(`Please specify in what channel you want the giveaway in!`)
     }
-    if(!args.slice(2).join(' ')){
+    const msg = args.slice(2).join(' ');
+    if(!msg){
         return message.channel.send(`Please specify a prize!`)
     }
     if(!ms(args[0])){
