@@ -9,7 +9,7 @@ message.channel.send(`__Uptime:__\n${days}d ${hours}h ${minutes}m ${seconds}s`);
 }
 module.exports.config = {
             name: "uptime",
-            description: "a trigger image command",
+            description: "shows from when the bot wasnt updated",
             usage: "/uptime",
             accessableby: "Members",
             aliases: []
