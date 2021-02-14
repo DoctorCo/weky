@@ -27,16 +27,7 @@ fs.readdir("./commands/", (err, files) => {
         });
     });
 });
-
 bot.on("message", async message => {
-    bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers | /help`,  {type: "PLAYING"})
-
-    if(message.author.bot || message.channel.type === "dm") return;
-
-    let prefix = botsettings.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = message.content.substring(message.content.indexOf(' ')+1);
     const Levels = require('discord-xp')
     Levels.setURL("mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data")
     const randomXp = Math.floor(math.random() * 9) + 1; //Random amont of XP until the number you want + 1
@@ -63,6 +54,17 @@ bot.on("message", async message => {
 
         message.channel.send(`${lb.join("\n\n")}}`)
     }
+})
+bot.on("message", async message => {
+    bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers | /help`,  {type: "PLAYING"})
+
+    if(message.author.bot || message.channel.type === "dm") return;
+
+    let prefix = botsettings.prefix;
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+    let args = message.content.substring(message.content.indexOf(' ')+1);
+
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)
