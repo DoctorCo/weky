@@ -11,7 +11,6 @@ module.exports.run = async (bot, message, args, client) => {
     .setAvatar(target.displayAvatarURL({dynamic: false, format: 'png'}))
     .setCurrentXP(user.xp)
     .setRequiredXP(neededXp)
-    .setStatus(target.presense.status)
     .setProgressBar("#00FF00", "COLOR")
     .setUsername(target.username)
     .setDiscriminator(target.discriminator)
