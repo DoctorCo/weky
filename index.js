@@ -38,25 +38,6 @@ bot.on("message", async message => {
         const user = await Levels.fetch(message.author.id, message.guild.id);
         message.channel.send(`You leveled up to ${user.level}! Keep it going!`);
     }
-    
-    //Rank
-    if(message.content === "/rank") {
-        const user = await Levels.fetch(message.author.id, message.guild.id);
-        message.channel.send(`You are currently level **${user.level}**!`)
-    }
-    
-    //Leaderboard
-    if(message.content === "/leaderboard" || message.content === "/lb") {
-        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
-        const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);
-        if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
-
-        const lb = leaderboard.map(e => `${e.position}. **${e.username}#${e.discriminator}**\n\`Level: ${e.level}\`\nXP: ${e.xp.toLocaleString()}`);
-        const embed = new Discord.MessageEmbed()
-        .setAuthor(`Global Weky's Leaderboard`)
-        .setDescription(`${lb.join("\n\n")}`)
-        message.channel.send(embed)
-    }
 })
 bot.on("message", async message => {
     bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers | /help`,  {type: "PLAYING"})
