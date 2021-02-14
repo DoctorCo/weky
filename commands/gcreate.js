@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, client) => {   
-    if (!member.hasPermission(['MANAGE_MESSAGES', 'MANAGE_SERVER'])) {
+    if (!message.author.hasPermission(['MANAGE_MESSAGES', 'MANAGE_SERVER'])) {
         console.log('You dont have any permissions to use this command.');
     }
     const channel = message.mentions.channels.first();
