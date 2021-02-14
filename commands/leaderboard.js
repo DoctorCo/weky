@@ -7,7 +7,7 @@ if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
 const lb = leaderboard.map(e => `${e.position}. **${e.username}#${e.discriminator}**\n\`Level: ${e.level}\`\nXP: ${e.xp.toLocaleString()}`);
 const embed = new Discord.MessageEmbed()
-.setAuthor(`Global Weky's Leaderboard`)
+.setAuthor(`Weky's Leaderboard for "${message.guild.name}"`)
 .setDescription(`${lb.join("\n\n")}`)
 message.channel.send(embed)
 }
