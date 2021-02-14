@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, client) => {
     const channel = message.mentions.channels.first();
-    const prize = args[2]
-    const time = args[3]
-    const winners = args[4]
+    const prize = args[1]
+    const time = args[2]
+    const winners = args[3]
     if(prize){
         return message.channel.send(`Please specify a prize!`)
     }
