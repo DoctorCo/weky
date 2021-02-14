@@ -1,8 +1,8 @@
 
 module.exports.run = async (bot, message, args) => {
     const Discord = require('discord.js');
-const { GiveawaysManager } = require('discord-giveaway');
-const manager = new GiveawaysManager(bot, {
+const { GiveawayManager } = require('discord-giveaway');
+const manager = new GiveawayManager(bot, {
     default: {
         botsCanWin: false,
         exemptPermissions: ['MANAGE_MESSAGES', 'ADMINISTRATOR'],
