@@ -22,7 +22,8 @@ module.exports.run = async (bot, message, args, client) => {
         // will create a giveaway with a duration of two days, with one winner and the prize will be "Awesome prize!"
         bot.giveawaysManager.start(message.channel, {
             time: ms(args[0]),
-            channel: channel,
+            channelId: channel,
+            hostedBy: message.author.id,
             prize: args.slice(2).join(' '),
             winnerCount: parseInt(args[1])
         })
