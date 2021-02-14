@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args, client) => {
     const target = message.mentions.members.first() || message.author;
 
     const user = await Levels.fetch(target.id, message.guild.id)
-
+    const neededXp = Levels.xpFor(parseInt(user.level) + 1);
     if (!user) return message,reply("You dont have any xp, try to be active");
     const rank = new canvacord.Rank()
     .setAvatar(target.displayAvatarURL({dynamic: false, format: 'png'}))
