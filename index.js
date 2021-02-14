@@ -28,6 +28,8 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 bot.on("message", async message => {
+    if(message.author.bot || message.channel.type === "dm") return;
+
     const Levels = require('discord-xp')
     Levels.setURL("mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data")
     const randomXp = Math.floor(Math.random() * 9) + 1; //Random amont of XP until the number you want + 1
@@ -51,7 +53,7 @@ bot.on("message", async message => {
 
         const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
 
-        message.channel.send(`${lb.join("\n\n")}}`)
+        message.channel.send(`${lb.join("\n\n")}`)
     }
 })
 bot.on("message", async message => {
