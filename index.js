@@ -6,13 +6,9 @@ const bot = new Discord.Client({disableEveryone: true});
 
 mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 
-const { GiveawayCreator } = require('discord-giveaway');
-const Creator = new GiveawayCreator(bot, 'mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data');
- 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
-bot.giveaways = Creator;
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -30,25 +26,6 @@ fs.readdir("./commands/", (err, files) => {
             bot.aliases.set(alias, pull.config.name)
         });
     });
-});
-bot.on('message', (message) => {
-    const ms = require('ms'); // npm install ms
-    const args = message.content.slice(botsettings.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-
-    if (command === 'start-giveaway') {
-        // g!start-giveaway 2d 1 Awesome prize!
-        // will create a giveaway with a duration of two days, with one winner and the prize will be "Awesome prize!"
-        const GiveawaysManager = require('discord-giveaway');
-        bot.giveaways.startGiveaway(message.channel, {
-            time: ms(args[0]),
-            prize: args.slice(2).join(' '),
-            winnerCount: parseInt(args[1])
-        }).then((gData) => {
-            console.log(gData); // {...} (messageid, end date and more)
-        });
-        // And the giveaway has started!
-    }
 });
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
