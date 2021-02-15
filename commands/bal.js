@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     const targetId = target.id
     const Money = require('../schemas/Money')
 Money.findOne({
-  id: target.id
+  id: targetId
 }, (err,data) => {
   if(err) console.log(err);
   if(!data){
@@ -50,7 +50,7 @@ Money.findOne({
   }
   module.exports.config = {
     name: "balance",
-    description: "sending you the leaderboard of the levels",
+    description: "showing you the balance of yourself or the pinged user's one",
     usage: "/balance @user || /balance",
     accessableby: "Members",
     aliases: ["bal"]
