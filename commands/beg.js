@@ -98,11 +98,11 @@ var okk = [
 ]
 var mk = Math.floor(Math.random() * okk.length)
 var ok = okk[mk]
-   if(okk != 2) {
+   if(okk != 1) {
     data.Wallet += muni;
     data.save();    
     message.channel.send(`${person} ${ok}`)
-    } else if(okk != 1) {
+    } else if(okk != 2) {
         message.channel.send(`${person} ${ok}`)
     }
 }
