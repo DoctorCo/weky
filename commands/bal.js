@@ -44,6 +44,7 @@ Money.findOne({
     .setTitle(target.username + '\'s balance')
     .setDescription("**Wallet**: " + data.Wallet + "\n**Bank**: " + data.Bank)
     .setColor("RANDOM")
+    .setTimestamp();
     message.channel.send(embed);
   }
 });
