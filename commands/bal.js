@@ -1,6 +1,4 @@
-const { DiscordAPIError } = require('discord.js')
-const economy = require('../economy')
-const Money = require('../schemas/Money')
+const { Discord } = require('discord.js')
 module.exports.run = async (bot, message, args) => {
 
     const target = message.mentions.users.first() || message.author
@@ -11,7 +9,7 @@ Money.findOne({
   if(err) console.log(err);
   if(!data){
     newD = new Money({
-      id: target.id,
+      id: targetId,
       Wallet: 100,
       Bank: 0,
       Phone: 0,
