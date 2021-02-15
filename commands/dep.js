@@ -46,7 +46,7 @@ Money.findOne({
     let user = message.guild.members.cache.get(message.author.id);
     user.user.send(`Hello , thanks for starting using Weky Bot!\nYou got 100 coins as reward for starting. Do /help for more commands about our currency system.`)
   } else {
-    if(deleteAmount > data.Cash) {return message.chanel.send("You dont have that much money");} else {
+    if(deleteAmount > data.Cash) {return message.channel.send("You dont have that much money");} else {
        data.Cash -= deleteAmount;
        data.Bank += deleteAmount;
        data.save();
