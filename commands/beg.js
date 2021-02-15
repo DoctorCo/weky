@@ -91,20 +91,10 @@ Money.findOne({
    var bruh = breh[breh1]
    var person = persons[persons1]
    const muni = Math.floor(Math.random() * 300) + 60;
-var num = Math.floor(Math.random() * 2)
-var okk = [
-    `gave you **${muni}** coins ${bruh}`
-    `gave u nothing.. GEI`
-]
-var mk = Math.floor(Math.random() * okk.length)
-var ok = okk[mk]
-   if(okk != 1) {
-    data.Wallet += muni;
-    data.save();    
-    message.channel.send(`${person} ${ok}`)
-    } else if(okk != 2) {
-        message.channel.send(`${person} ${ok}`)
-    }
+
+    data.Wallet += muni;    
+    message.channel.send(`${person} gave you **${muni}** coins ${bruh}`)
+    data.save();  
 }
 });
 }
