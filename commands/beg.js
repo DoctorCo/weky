@@ -92,13 +92,23 @@ Money.findOne({
    var person = persons[persons1]
 
    const muni = Math.floor(Math.random() * 300) + 60;
-
-    data.Cash += muni
-    message.channel.send(`${person} gave you **${muni}** coins ${bruh}`)
-    data.save();
+var num = Math.floor(Math.random() * 2)
+var okk = [
+    `gave you **${muni}** coins ${bruh}`
+    `gave u nothing.. GEI`
+]
+var mk = Math.floor(Math.random() * okk.length)
+var ok = okk[mk]
+   if(okk != 2) {
+    data.Wallet += muni;
+    data.save();    
+    message.channel.send(`${person} ${ok}`)
+    } else if(okk != 1) {
+        message.channel.send(`${person} ${ok}`)
+    }
 }
 });
-  }
+}
   module.exports.config = {
     name: "beg",
     description: "begging for money be like",
