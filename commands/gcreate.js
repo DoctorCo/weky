@@ -6,7 +6,7 @@ const ms = require('ms')
         await bot.giveaways.startGiveaway({
             prize: args[1],
             guildId: message.guild.id,
-            duration: ms(args[2]), // 30 Seconds
+            duration: args[2], // 30 Seconds
             winners: args[3], // 1 winner
             hostedBy: message.author.id
         });
