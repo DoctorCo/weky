@@ -87,8 +87,10 @@ Money.findOne({
        `nice.`,
        `i cant say something .. you just begged.`,
    ]
-   var bruh = Math.floor(Math.random() * breh.length);
-   var person = Math.floor(Math.random() * persons.length);
+   var breh1 = Math.floor(Math.random() * breh.length);
+   var persons1 = Math.floor(Math.random() * persons.length);
+   var bruh = breh[breh1]
+   var person = persons[person1]
     data.Cash += muni;
  
     message.channel.send(`${person} gave you **${muni}** coins ${bruh}`)
