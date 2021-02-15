@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     const num = parseFloat(args[0]);
     if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please put a number only!')
         } else {
-            deleteAmount = parseInt(args[0]);
+            const deleteAmount = parseInt(args[0]);
         }
     const target = message.mentions.users.first() || message.author
     const targetId = target.id
@@ -46,7 +46,8 @@ Money.findOne({
     let user = message.guild.members.cache.get(message.author.id);
     user.user.send(`Hello , thanks for starting using Weky Bot!\nYou got 100 coins as reward for starting. Do /help for more commands about our currency system.`)
   } else {
-    if(deleteAmount > data.Cash) {return message.channel.send("You dont have that much money");} else {
+    if(deleteAmount > data.Cash) {return message.channel.send("You dont have that much money");
+} else {
        data.Cash -= deleteAmount;
        data.Bank += deleteAmount;
        data.save();
