@@ -1,4 +1,4 @@
-const economy = require('../../economy')
+const economy = require('../economy')
 module.exports.run = async (bot, message, args) => {
 
     const target = message.mentions.users.first() || message.author
