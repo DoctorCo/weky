@@ -94,7 +94,8 @@ Money.findOne({
     data.Cash += muni;
  
     message.channel.send(`${person} gave you **${muni}** coins ${bruh}`)
-  }
+  newD.save();
+}
 });
   }
   module.exports.config = {
