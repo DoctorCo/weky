@@ -1,11 +1,10 @@
 const Discord = require('discord.js');
 const { deleteModel } = require('mongoose');
+const deleteAmount = parseInt(args[0]);
 module.exports.run = async (bot, message, args) => {
     if (!args[0]) return message.reply('You need to type a number')
     const num = parseFloat(args[0]);
     if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please put a number only!')
-        } else {
-            const deleteAmount = parseInt(args[0]);
         }
     const target = message.mentions.users.first() || message.author
     const targetId = target.id
