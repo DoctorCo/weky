@@ -2,7 +2,7 @@ const mongo = require('./index.js')
 const profileSchema = require('./shemas/profile-schema')
 modules.exports = (client) => {}
 module.exports.getCoins = async (guildId, userId) => {
-    return await mongo().then(mongoose => {
+     await mongo().then(mongoose => {
         try {
             console.log(`Running findOne()`)
 
