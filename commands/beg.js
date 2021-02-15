@@ -90,7 +90,6 @@ Money.findOne({
    var persons1 = Math.floor(Math.random() * persons.length);
    var bruh = breh[breh1]
    var person = persons[persons1]
-
    const muni = Math.floor(Math.random() * 300) + 60;
 var num = Math.floor(Math.random() * 2)
 var okk = [
