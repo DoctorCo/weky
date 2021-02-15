@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args, client) => {   
 const ms = require('ms')
         const channel = message.mentions.channels.first();
+        if(isNaN(args[3])) return message.reply('Error here br')
         await bot.giveaways.startGiveaway({
             prize: args[1],
             guildId: message.guild.id,
