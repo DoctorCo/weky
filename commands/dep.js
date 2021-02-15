@@ -3,9 +3,8 @@ module.exports.run = async (bot, message, args) => {
     if (!args[0]) return message.reply('Please tell me how much you want to deposit.')
     const num = parseFloat(args[0]);
     if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please put a number only!')
-        } else {
-            deleteAmount = parseInt(args[0]);
         }
+
     const Money = require("../schemas/Money")
 Money.findOne({
     id: message.author.id
@@ -48,7 +47,7 @@ Money.findOne({
          data.Wallet -= num;
         data.Bank += num;
         data.save();
-        message.channel.send("Deposited **" + deleteAmount + '** coins')
+        message.channel.send("Deposited **" + num + '** coins')
 }
        
     }
