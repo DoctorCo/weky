@@ -2,16 +2,14 @@ const Discord = require('discord.js');
 module.exports.run = async (bot, message, args) => {
     var num = parseFloat(args[0])
     if (num.isNaN) return message.channel.send("Thats not a valid number");
-    const target = message.mentions.users.first() || message.author
-    const targetId = target.id
     const Money = require('../schemas/Money')
 Money.findOne({
-  id: targetId
+  id: message.author.id
 }, (err,data) => {
   if(err) console.log(err);
   if(!data){
     newD = new Money({
-      id: targetId,
+      id: message.author.id,
       Wallet: 100,
       Bank: 0,
       Phone: 0,
