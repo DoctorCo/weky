@@ -3,7 +3,7 @@ const Levels = require('discord-xp')
 module.exports.run = async (bot, message, args) => {
 const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
 const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);
-if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
+if (rawLeaderboard.length < 1) return message.reply("Nobody's in leaderboard yet.");
 
 const lb = leaderboard.map(e => `${e.position}. **${e.username}#${e.discriminator}**\n\`Level: ${e.level}\`\nXP: ${e.xp.toLocaleString()}`);
 const embed = new Discord.MessageEmbed()
