@@ -7,7 +7,7 @@ const ms = require('ms')
             prize: args[1],
             guildId: message.guild.id,
             channelId: message.channel.id,
-            duration: args[2], // 30 Seconds
+            duration: args[4], // 30 Seconds
             winners: args[3], // 1 winner
             hostedBy: message.author.id
         });
