@@ -39,7 +39,7 @@ bot.on('message', (message) => {
     if (command === 'start-giveaway') {
         // g!start-giveaway 2d 1 Awesome prize!
         // will create a giveaway with a duration of two days, with one winner and the prize will be "Awesome prize!"
-        const { GiveawaysManager } = require('discord-giveaways');
+        const { GiveawaysManager } = require('discord-giveaway');
         bot.giveawaysManager.start(message.channel, {
             time: ms(args[0]),
             prize: args.slice(2).join(' '),
