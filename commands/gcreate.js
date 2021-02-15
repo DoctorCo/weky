@@ -1,15 +1,16 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, client) => {   
-
-    const ms = require('ms');
-        // >gcreate 2d 1 Awesome prize!
-        // will create a giveaway with a duration of two days, with one winner and the prize will be "Awesome prize!"
-        await bot.giveaways.startGiveaway({
-            time: ms(args[1]),
-            prize: args[3],
-            winnerCount: parseInt(args[2])
-        })
+const ms = require('ms')
+        const channel = message.mentions.channels.first();
+        await client.giveaways.startGiveaway({
+            prize: args[1],
+            channelId: channel.id,
+            guildId: message.guild.id,
+            duration: ms(args[2]), // 30 Seconds
+            winners: args[3], // 1 winner
+            hostedBy: message.author.id
+        });
     }
 module.exports.config = {
     name: "gcreate",

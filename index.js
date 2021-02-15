@@ -8,7 +8,7 @@ mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net
 
 const { GiveawayCreator } = require('discord-giveaway');
 const Creator = new GiveawayCreator(bot, 'mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data');
-
+ 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
