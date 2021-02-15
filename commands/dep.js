@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
-    if (!args[0]) return message.reply('Please tell me how much you want to deposit.')
+    if (!args[1]) return message.reply('Please tell me how much you want to deposit.')
     const num = parseFloat(args[1]);
     if (isNaN(args[1]) || parseInt(args[1]) <= 0) { return message.reply('Please put a number only!')
         } else {
