@@ -9,6 +9,7 @@ const ms = require('ms')
             guildId: message.guild.id,
             channelId: message.channel.id,
             duration: args[4], // 30 Seconds
+            endsOn: args[4],
             winners: args[3], // 1 winner
             hostedBy: message.author.id
         });
