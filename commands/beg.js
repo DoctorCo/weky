@@ -92,9 +92,8 @@ Money.findOne({
    var bruh = breh[breh1]
    var person = persons[persons1]
     data.Cash += muni;
- 
+    data.save();
     message.channel.send(`${person} gave you **${muni}** coins ${bruh}`)
-  data.save();
 }
 });
   }
