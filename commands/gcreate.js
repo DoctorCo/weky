@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args, client) => {   
 const ms = require('ms')
         const channel = message.mentions.channels.first();
-        await client.giveaways.startGiveaway({
+        await bot.giveaways.startGiveaway({
             prize: args[1],
             channelId: channel.id,
             guildId: message.guild.id,
