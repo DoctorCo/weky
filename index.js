@@ -33,7 +33,7 @@ fs.readdir("./commands/", (err, files) => {
 });
 bot.on('message', (message) => {
     const ms = require('ms'); // npm install ms
-    const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(botsettings.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
     if (command === 'start-giveaway') {
