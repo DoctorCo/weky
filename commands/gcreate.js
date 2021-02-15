@@ -2,8 +2,6 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, client) => {   
 
-    const channel = message.mentions.channels.first();
-    if(isNaN(args[3])) return message.channel.send(`No winners amount specified`)
     const ms = require('ms');
         // >gcreate 2d 1 Awesome prize!
         // will create a giveaway with a duration of two days, with one winner and the prize will be "Awesome prize!"
