@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     const guildId = message.guild.id
     const userId = target.id
 
-    const coins = economy.getCoins(guildId, userId)
+    const coins = await economy.getCoins(guildId, userId)
 
     message.reply(`That user has ${coins} coins!`)
   }
