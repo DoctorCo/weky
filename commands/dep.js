@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
     if (!args[0]) return message.reply('Please tell me how much you want to deposit.')
-    const num = parseFloat(args[0]);
-    if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please put a number only!')
+    const num = parseFloat(args[1]);
+    if (isNaN(args[1]) || parseInt(args[1]) <= 0) { return message.reply('Please put a number only!')
         } else {
-            deleteAmount = parseInt(args[0]);
+            deleteAmount = parseInt(args[1]);
         }
     const Money = require("../schemas/Money")
 Money.findOne({
