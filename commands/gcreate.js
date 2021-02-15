@@ -5,7 +5,6 @@ const ms = require('ms')
         const channel = message.mentions.channels.first();
         await bot.giveaways.startGiveaway({
             prize: args[1],
-            channelId: channel.id,
             guildId: message.guild.id,
             duration: ms(args[2]), // 30 Seconds
             winners: args[3], // 1 winner
