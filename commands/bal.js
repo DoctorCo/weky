@@ -42,7 +42,7 @@ Money.findOne({
   } else {
     let embed = new Discord.MessageEmbed()
     .setTitle(target.username + '\'s balance')
-    .setDescription("**Wallet**: " + data.Wallet + "**\n**Bank**: " + data.Bank)
+    .setDescription("**Wallet**: " + data.Wallet + "\n**Bank**: " + data.Bank)
     .setColor("RANDOM")
     message.channel.send(embed);
   }
