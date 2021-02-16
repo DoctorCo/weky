@@ -9,6 +9,7 @@ const lb = leaderboard.map(e => `${e.position}. **${e.username}#${e.discriminato
 const embed = new Discord.MessageEmbed()
 .setAuthor(`Weky's Leaderboard for "${message.guild.name}"`)
 .setDescription(`${lb.join("\n\n")}`)
+.setFooter(`If the users are Unknown, that means they havent been sent messages anymore`)
 message.channel.send(embed)
 }
 module.exports.config = {
