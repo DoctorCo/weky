@@ -57,27 +57,34 @@ Money.findOne({
         `**Howard Stern**`
    ]
    const breh = [
-       `a bit dumb but ye.`,
-       `nice begger.`,
-       `you suck thats why you got these.`,
-       `what a kid...`,
-       `no one cares about you now.`,
-       `with this money you can gamble NICEE.`,
-       `ok now go lose all.`,
-       `do u think that u got them by doing something hard? go earn money.`,
-       `oh so you like money? name every money from weky.`,
-       `nice.`,
-       `i cant say something .. you just begged.`,
+       `: uh sure enjoy **${muni}** coins`,
+       `: nice begger dude, get **${muni}** coins just for that.`,
+       `: ok get my **${muni}** coins i will resist there.`,
+       `: oh ok there, **${muni}** coins.`,
+       `: aww no one cares about you, get these **${muni}** coins pls.`,
+       `: pro at begging take my **${muni}** coins.`,
+       `: o oo oo o **${muni}** coins.`,
+       `: and thats your way of gettings money? :/ fine take my **${muni}** coins.`,
+       `: why not **${muni}** coins for you.`,
+       `: nice get **${muni}** coins.`,
+       `: ur not that good at begging so no coins`,
+       `: sorry dude, i've used all my money to donate to cozmo :/`,
+       `: hello im from NOTHING federation and you get our name`,
+       `: nah`,
+       `: seems like no one likes you so i will dont too :D`,
+       `: sorry dude im looking to buy ${message.author.username}'s head i cant give u money.`
    ]
    var breh1 = Math.floor(Math.random() * breh.length);
    var persons1 = Math.floor(Math.random() * persons.length);
    var bruh = breh[breh1]
    var person = persons[persons1]
    const muni = Math.floor(Math.random() * 300) + 60;
-
-    data.Wallet += muni;    
-    message.channel.send(`${person} gave you **${muni}** coins ${bruh}`)
-    data.save();  
+   
+if(persons1 != 1 && persons1 != 2 && persons1 != 3 && persons1 != 4 && persons1 != 5 && persons1 != 6 && persons1 != 7 && persons1 != 8 && persons1 != 9 && persons1 != 10) {
+  data.Wallet += muni;    
+  message.channel.send(`${person}${bruh}`)
+  data.save(); 
+}
 }
 });
 }
