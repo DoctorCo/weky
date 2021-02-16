@@ -1,6 +1,13 @@
 const Discord = require('discord.js')
+const talkedRecently = new Set();
 module.exports.run = async (bot, message, args) => {
-
+  if (talkedRecently.has(message.author.id)) {
+    const embed = new Discord.MessageEmbed()
+    .setAuthor(`Wait 45 more seconds`)
+    .setDescription(`😡 Dont you dare to frikin tryna break me, please wait \`45s\` to use this command again idot :D`)
+    .setFooter(`This timer dont update in real time`)
+    message.channel.send(embed);
+} else {
     const target = message.mentions.users.first() || message.author
     const targetId = target.id
     const Money = require('../schemas/Money')
@@ -14,7 +21,7 @@ Money.findOne({
     });
     newD.save();
     let user = message.guild.members.cache.get(message.author.id);
-    user.user.send(`Hello , thanks for starting using Weky Bot!\nYou got 100 coins as reward for starting. Do /help for more commands about our currency system.`)
+    user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
   } else {
     const persons = [
         `**Thanos**`,
@@ -73,6 +80,12 @@ Money.findOne({
     data.save();  
 }
 });
+}
+talkedRecently.add(message.author.id);
+                setTimeout(() => {
+                talkedRecently.delete(message.author.id);
+                }, 45000);
+         
 }
   module.exports.config = {
     name: "beg",
