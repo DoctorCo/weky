@@ -1,5 +1,13 @@
 const Discord = require('discord.js');
+const talkedRecently = new Set();
 module.exports.run = async (bot, message, args) => {
+  if (talkedRecently.has(message.author.id)) {
+    const embed = new Discord.MessageEmbed()
+    .setAuthor(`Wait 5 more seconds`)
+    .setDescription(`Dont you dare to frikin tryna break me, please wait \`5s\` to use this command again idot :D`)
+    .setFooter(`This timer dont update in real time`)
+    message.channel.send(embed);
+} else {
     var num = parseFloat(args[1])
     if (num.isNaN) return message.channel.send("Thats not a valid number");
     const Money = require('../schemas/Money')
@@ -20,9 +28,15 @@ Money.findOne({
     data.Cash -= num;
    data.Bank += num;
    data.save();
-   message.channel.send("Deposited **" + num + '** coins')
+   message.channel.send("Deposited **" + num + '** coins.')
 }
 });
+}
+talkedRecently.add(message.author.id);
+                setTimeout(() => {
+                talkedRecently.delete(message.author.id);
+                }, 6000);
+         
   }
   module.exports.config = {
     name: "deposit",
