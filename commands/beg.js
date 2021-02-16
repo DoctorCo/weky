@@ -23,6 +23,8 @@ Money.findOne({
     let user = message.guild.members.cache.get(message.author.id);
     user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
   } else {
+    const muni = Math.floor(Math.random() * 300) + 60;
+
     const persons = [
         `**Thanos**`,
         `**The girl that you where caught with in bed last night**`,
@@ -78,7 +80,6 @@ Money.findOne({
    var persons1 = Math.floor(Math.random() * persons.length);
    var bruh = breh[breh1]
    var person = persons[persons1]
-   const muni = Math.floor(Math.random() * 300) + 60;
    
 if(persons1 != 1 && persons1 != 2 && persons1 != 3 && persons1 != 4 && persons1 != 5 && persons1 != 6 && persons1 != 7 && persons1 != 8 && persons1 != 9 && persons1 != 10) {
   data.Wallet += muni;    
