@@ -14,11 +14,13 @@ Money.findOne({
     newD.save();
     let user = message.guild.members.cache.get(message.author.id);
     user.user.send(`Hello , thanks for starting using Weky Bot!\nYou got 100 coins as reward for starting. Do /help for more commands about our currency system.`)
+  } else if(num > data.Wallet) {
+    return message.chanel.send("You dont have that much money why you bad at me bro :/");
   } else {
-    data.Wallet -= num;
-    data.Bank += num
-    data.save();
-    message.channel.send(`Successfully deposited **${num} coins**`)
+    data.Cash -= num;
+   data.Bank += num;
+   data.save();
+   message.channel.send("Deposited **" + num + '** coins')
 }
 });
   }
