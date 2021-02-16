@@ -61,7 +61,7 @@ Money.findOne({
    const breh = [
        `: uh sure enjoy **${muni}** coins`,
        `: nice begger dude, get **${muni}** coins just for that.`,
-       `: ok get my **${muni}** coins i will resist there.`,
+       `: ok get my **${muni}** coins.`,
        `: oh ok there, **${muni}** coins.`,
        `: aww no one cares about you, get these **${muni}** coins pls.`,
        `: pro at begging take my **${muni}** coins.`,
