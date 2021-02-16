@@ -36,7 +36,12 @@ bot.on("message", async message => {
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
+        const user1 = message.author.id
         message.channel.send(`You leveled up to **level ${user.level}**! Keep it going!`);
+    if(user.level === '5'){
+        const role = guild.roles.cache.find(role => role.id === '795551365077401600');
+        user1.roles.add(role);
+    }
     }
 })
 bot.on("message", async message => {
