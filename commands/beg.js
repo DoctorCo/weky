@@ -85,6 +85,8 @@ if(persons1 != 1 && persons1 != 2 && persons1 != 3 && persons1 != 4 && persons1 
   data.Wallet += muni;    
   message.channel.send(`${person}${bruh}`)
   data.save(); 
+} else {
+  message.channel.send(`${person}${bruh}`)
 }
 }
 });
