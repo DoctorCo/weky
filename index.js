@@ -51,9 +51,9 @@ bot.on("message", async message => {
 
     let prefix = botsettings.prefix;
     let messageArray = message.content.split(" ");
-    const input = msg.content.slice(prefix.length).trim().split(' ');
+    const input = message.content.slice(prefix.length).trim().split(' ');
       const commandArgs = input.join(' ');
-      const args = msg.content.slice(prefix.length).trim().split(/ +/);
+      const args = message.content.slice(prefix.length).trim().split(/ +/);
       let cmd = messageArray[0];
 
     if(!message.content.startsWith(prefix)) return;
