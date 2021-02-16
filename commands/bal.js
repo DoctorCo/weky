@@ -10,31 +10,7 @@ Money.findOne({
   if(err) console.log(err);
   if(!data){
     newD = new Money({
-      id: targetId,
-      Wallet: 100,
-      Bank: 0,
-      Phone: 0,
-      Laptop: 0,
-      Lootbox: 0,
-      EpicLootbox: 0,
-      LegLootbox: 0,
-      gun: 0,
-      fox: 0,
-      tiger: 0,
-      eagle: 0,
-      bear: 0,
-      fishing: 0,
-      fish: 0,
-      fishrare: 0,
-      fishepic: 0,
-      fishleg: 0,
-      banknote: 0,
-      bread: 0,
-      bacon: 0,
-      candy: 0,
-      wekymoon: 0,
-      wekyripoff: 0,
-      wekytrophy: 0
+      id: targetId
     });
     newD.save();
     let user = message.guild.members.cache.get(message.author.id);
