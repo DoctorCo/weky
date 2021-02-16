@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
         .setURL('https://www.youtube.com/channel/UCZ_cuJGBis0vi6U3bWmvDIg')
         .setDescription('😂 Fun:\n `corona`, `rc`, `meme`, `simprate`, `ship`, `noobrate`, `fart`, `cringerate`\n⬆️ Level:\n `rank`, `leaderboard`\n🔩 Utility:\n `ping`, `invite`, `suggest`, `report`, `uptime`\n📷 Image:\n`drip`, `gray`, `blur`, `facepalm`, `hitler`, `invert`, `gay`, `trigger`, `rip`, `shit`, `trash`')
         .setColor('#FF2D00')
-        .setThumbnail('https://cdn.discordapp.com/attachments/693366623725158476/810224363671519232/vday_wek.png')
+        .setThumbnail('https://cdn.discordapp.com/emojis/798365870148681729.png?v=1')
         .setTimestamp()
         
         message.channel.send(embed);
