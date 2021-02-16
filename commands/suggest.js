@@ -4,10 +4,10 @@ module.exports.run = async (bot, message, args, client) => {
         message.mentions.members.first() ||
         message.guild.members.cache.get('778518819055861761');
 
-      if (!args.join(" "))
+      if (!args.splice(1).join(" "))
         return message.channel.send("You did not specify your message");
       user.user
-        .send(args.join(" ") + `\n ${message.author.username}#${message.author.discriminator}`)
+        .send(args.splice(1).join(" ") + `\n **${message.author.username}#${message.author.discriminator}**`)
         .then(() => message.channel.send(`Thanks for the suggestion/bug! It will be rated/fixed by Face in some time!`));
     }
 
