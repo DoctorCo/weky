@@ -44,7 +44,7 @@ bot.on("message", async message => {
     }
     }
 })
-client.on('guildMemberAdd', async member => {
+bot.on('guildMemberAdd', async member => {
 	const channel = member.guild.channels.cache.find('811222075053572106');
 	if (!channel) return;
 
