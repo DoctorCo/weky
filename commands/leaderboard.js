@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
 	// Slightly smaller text placed above the member's display name
-	ctx.font = '28px sans-serif';
+	ctx.font = 'manrope bold';
 	ctx.fillStyle = '#ffffff';
     // nvm
     ctx.fillText(`${lb.join("\n\n")}`, canvas.width / 3.0, canvas.height / 5.0);
