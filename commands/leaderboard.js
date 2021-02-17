@@ -24,8 +24,6 @@ module.exports.run = async (bot, message, args) => {
 	ctx.font = '28px sans-serif';
 	ctx.fillStyle = '#ffffff';
     // nvm
-    ctx.font = applyText(canvas, `${member.displayName}!`);
-	ctx.fillStyle = '#ffffff';
     ctx.fillText(`${lb.join("\n\n")}`, canvas.width / 2.5, canvas.height / 1.8);
 
 	ctx.beginPath();
