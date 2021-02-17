@@ -4,7 +4,7 @@ const Canvas = require('canvas');
 
 
 module.exports.run = async (bot, message, args) => {
-    Canvas.registerFont('Manrope-Bold.otf', { family:  'imgay' });
+    Canvas.registerFont('28px sans-serif');
 
         const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
 
