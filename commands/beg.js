@@ -68,25 +68,29 @@ Money.findOne({
        `: o oo oo o **${muni}** coins.`,
        `: and thats your way of gettings money? :/ fine take my **${muni}** coins.`,
        `: why not **${muni}** coins for you.`,
-       `: nice get **${muni}** coins.`,
-       `: ur not that good at begging so no coins`,
-       `: sorry dude, i've used all my money to donate to cozmo :/`,
-       `: hello im from NOTHING federation and you get our name`,
-       `: nah`,
-       `: seems like no one likes you so i will dont too :D`,
-       `: sorry dude im looking to buy ${message.author.username}'s head i cant give u money.`
+       `: nice get **${muni}** coins.`
    ]
+   const ok = [
+    `: ur not that good at begging so no coins`,
+    `: sorry dude, i've used all my money to donate to cozmo :/`,
+    `: hello im from NOTHING federation and you get our name`,
+    `: nah`,
+    `: seems like no one likes you so i will dont too :D`,
+    `: sorry dude im looking to buy ${message.author.username}'s head i cant give u money.`
+   ]
+   var o = Math.floor(Math.random() * ok.length);
+const okk = ok[o]
    var breh1 = Math.floor(Math.random() * breh.length);
    var persons1 = Math.floor(Math.random() * persons.length);
    var bruh = breh[breh1]
    var person = persons[persons1]
-   
-if(breh1 != 0 && breh1 != 1 && breh1 != 2 && breh1 != 3 && breh1 != 4 && breh1 != 5 && breh1 != 6 && breh1 != 7 && breh1 != 8 && breh1 != 9) {
+   var num = Math.floor(Math.random() * 2) +0;
+if(num != 1) {
   data.Wallet += muni;    
   message.channel.send(`${person}${bruh}`)
   data.save(); 
-} else {
-  message.channel.send(`${person}${bruh}`)
+} else if (num != 0){
+  message.channel.send(`${person}${okk}`)
 }
 }
 });
