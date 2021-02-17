@@ -4,7 +4,7 @@ const Canvas = require('canvas');
 
 
 module.exports.run = async (bot, message, args) => {
-    const ctx = canvas.getContext('2d');
+    const ctx = Canvas.getContext('2d');
 	ctx.font = '28px sans-serif';
 	ctx.fillStyle = '#ffffff';
 
