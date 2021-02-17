@@ -14,7 +14,8 @@ module.exports.run = async (bot, message, args) => {
 
         const lb = leaderboard.map(e => `${e.position} • ${e.username}#${e.discriminator}\nLevel: ${e.level} XP: ${e.xp.toLocaleString()}`);
 
-        //stuff for sending canvas dont worry about this
+        const attachment = new Discord.MessageAttachment(data, "lb.png")
+        message.channel.send(attachment)
 }
 module.exports.config = {
     name: "leaderboard",
