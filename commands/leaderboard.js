@@ -4,21 +4,25 @@ const Canvas = require('canvas');
 
 
 module.exports.run = async (bot, message, args) => {
-    const ctx = Canvas.getContext('2d');
-	ctx.font = '28px sans-serif';
-	ctx.fillStyle = '#ffffff';
+    const canvas = Canvas.createCanvas(867, 892);
+    const ctx = canvas.getContext('2d');
+    const background = await Canvas.loadImage(`https://cdn.discordapp.com/attachments/795647180995559434/811603450755285012/unknown.png`);
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    // ctx.beginPath();
+    // // ctx.arc(350, 150, 100, 0, Math.PI * 2, true);
+    // ctx.closePath();
+    // ctx.clip();
+    const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
+    if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
-        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
+    const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard); 
 
-        if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard.");
+    const lb = leaderboard.map(e => `**${e.position}. ${e.username}#${e.discriminator}**\n\`Level: ${e.level}\`\nXP: ${e.xp.toLocaleString()}`);
 
-        const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
-
-        const lb = leaderboard.map(e => `${e.position} • ${e.username}#${e.discriminator}\nLevel: ${e.level} XP: ${e.xp.toLocaleString()}`);
-        ctx.fillText(lb, canvas.width / 2.5, canvas.height / 3.5);
-
-        const attachment = new Discord.MessageAttachment(data, "lb.png")
-        message.channel.send(attachment)
+    message.channel.send(`${lb.join("\n\n")}`)
+    ctx.drawImage((`${lb.join("\n\n")}`), 350, 150, 205, 205);
+    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `lb.jpg`);
+    message.channel.send(attachment);
 }
 module.exports.config = {
     name: "leaderboard",
