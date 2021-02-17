@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
     const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
 
-    const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/795647180995559434/811616212811382794/unknown.png');
+    const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/795647180995559434/811623870808588309/unknown_1.jpg');
 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 	ctx.strokeStyle = '#74037b';
