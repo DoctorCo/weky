@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
                 data.Laptop += 1;
                 data.save();
                 const embed = new Discord.MessageEmbed()
-                .setAuthor(message.author.displayAvatarURL() + message.author.username + message.author.discriminator)
+                .setAuthor(message.author, message.member.user.displayAvatarURL())
                 .setDescription(`You sucessfully bought 1 Laptop`)
                 message.channel.send(embed)
         }
