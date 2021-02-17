@@ -45,7 +45,7 @@ bot.on("message", async message => {
     }
 })
 bot.on('guildMemberAdd', async member => {
-	const channel = member.guild.channels.cache.find(`811222075053572106`);
+	const channel = member.guild.channels.cache.find(ch => ch.name === '💬︱general');
 	if (!channel) return;
 
 	const canvas = Canvas.createCanvas(700, 250);
@@ -77,7 +77,7 @@ bot.on('guildMemberAdd', async member => {
 
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 
-	channel.send(attachment)
+	channel.send(`Welcome to the server, ${member}!`, attachment);
 });
 bot.on("message", async message => {
     bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers | /help`,  {type: "PLAYING"})
