@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 	ctx.font = '28px sans-serif';
 	ctx.fillStyle = '#ffffff';
     // nvm
-    ctx.fillText(`${lb.join("\n\n")}`, canvas.width / 2.5, canvas.height / 1.8);
+    ctx.fillText(`${lb.join("\n\n")}`, canvas.width / 2.0, canvas.height / 1.0);
 
 	ctx.beginPath();
 	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
