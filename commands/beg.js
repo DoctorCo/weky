@@ -81,7 +81,7 @@ Money.findOne({
    var bruh = breh[breh1]
    var person = persons[persons1]
    
-if(persons1 != 1 && persons1 != 2 && persons1 != 3 && persons1 != 4 && persons1 != 5 && persons1 != 6 && persons1 != 7 && persons1 != 8 && persons1 != 9 && persons1 != 10) {
+if(persons1 != 0 && persons1 != 1 && persons1 != 2 && persons1 != 3 && persons1 != 4 && persons1 != 5 && persons1 != 6 && persons1 != 7 && persons1 != 8 && persons1 != 9) {
   data.Wallet += muni;    
   message.channel.send(`${person}${bruh}`)
   data.save(); 
