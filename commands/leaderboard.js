@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     const lb = leaderboard.map(e => `**${e.position}. ${e.username}#${e.discriminator}**\n\`Level: ${e.level}\`\nXP: ${e.xp.toLocaleString()}`);
 
     message.channel.send(`${lb.join("\n\n")}`)
-    ctx.drawImage((`${lb.join("\n\n")}`), 350, 150, 205, 205);
+    ctx.drawImage(lb.join("\n\n"), 350, 150, 205, 205);
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `lb.jpg`);
     message.channel.send(attachment);
 }
