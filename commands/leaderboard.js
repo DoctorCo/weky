@@ -4,6 +4,8 @@ const Canvas = require('canvas');
 
 
 module.exports.run = async (bot, message, args) => {
+    const ctx = canvas.getContext('2d');
+
     const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
     const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
     if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
