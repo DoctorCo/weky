@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
     if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
-    const lb = leaderboard.computeLeaderboard(e => `**${e.position}. ${e.username}#${e.discriminator}**\n\`Level: ${e.level}\`\nXP: ${e.xp.toLocaleString()}`);
+    const lb = leaderboard.map(e => `**${e.position}. ${e.username}#${e.discriminator}**\n\`Level: ${e.level}\`\nXP: ${e.xp.toLocaleString()}`);
 
     message.channel.send(`${lb.join("\n\n")}`)
     ctx.drawImage((`${lb.join("\n\n")}`), 350, 150, 205, 205);
