@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
     if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
-    const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
+    const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}\n IF THE USERS ARE UNKOWN THAT MEANS THEY DIDN'T SENT ANY NEW MESSAGES`);
 
     const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/795647180995559434/811616212811382794/unknown.png');
 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
