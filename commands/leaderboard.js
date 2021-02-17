@@ -4,6 +4,8 @@ const Canvas = require('canvas');
 
 
 module.exports.run = async (bot, message, args) => {
+    const canvas = Canvas.createCanvas(867, 892);
+
     const ctx = canvas.getContext('2d');
 
     const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
