@@ -1,5 +1,5 @@
 
-    const Money = require("../schem/eco")
+    const Money = require("../schemas/Money")
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
