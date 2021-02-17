@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 	ctx.font = 'manrope bold';
 	ctx.fillStyle = '#ffffff';
     // nvm
-    ctx.fillText(`${lb.join("\n\n")}` + `\n IF THE USERS ARE UNKOWN THAT MEANS THEY DIDN'T SENT ANY NEW MESSAGES`, canvas.width / 3.0, canvas.height / 5.0);
+    ctx.fillText(`${lb.join("\n\n")}`, canvas.width / 3.0, canvas.height / 5.0);
 
 	ctx.beginPath();
 	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
