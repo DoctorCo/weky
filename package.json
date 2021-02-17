@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "canvacord": "^5.0.8",
-    "canvas": "^2.6.1",
+    "canvas": "^2.6.0",
     "discord-giveaway": "^1.1.2",
     "discord-xp": "^1.1.7",
     "discord.js": "^12.5.1",
