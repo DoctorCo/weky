@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
             let user = message.guild.members.cache.get(message.author.id);
             user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
             } else {
-                if(1500 > data.Wallet) {return message.channel.send(`You dont have money to buy this, make sure that you have the money in wallet`);} else {
+                if(4000 > data.Wallet) {return message.channel.send(`You dont have money to buy this, make sure that you have the money in wallet`);} else {
                 data.Wallet -= 4000*num;
                 data.Laptop += num;
                 data.save();
