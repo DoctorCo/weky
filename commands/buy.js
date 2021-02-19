@@ -8,8 +8,8 @@ module.exports.run = async (bot, message, args) => {
 
     if(buyArgs[0] === 'laptop') {
         var num = parseFloat(args[2])
-    if (!isNaN(num)) return;
-    
+    if (isNaN(num)) return;
+
         Money.findOne({
             id: message.author.id
         },
