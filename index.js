@@ -9,7 +9,7 @@ mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
-
+bot.snipes = new Discord.Collection();
 fs.readdir("./commands/", (err, files) => {
 
     if(err) console.log(err)
