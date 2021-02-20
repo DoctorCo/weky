@@ -25,7 +25,7 @@ Money.findOne({
   } else if(num > data.Wallet) {
     return message.channel.send("You dont have that much money why you bad at me bro :/");
   } else {
-    data.Cash -= num;
+    data.Wallet -= num;
    data.Bank += num;
    data.save();
    message.channel.send("Deposited **" + num + '** coins.')
