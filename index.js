@@ -31,7 +31,7 @@ bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
 
     const Levels = require('discord-xp')
-    Levels.setURL("mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data")
+    Levels.setURL(/* Mongodb url */)
     const randomXp = Math.floor(Math.random() * 9) + 1; //Random amont of XP until the number you want + 1
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
